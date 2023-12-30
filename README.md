@@ -6,7 +6,7 @@
 ### Install requirements
 
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ### Dataset
@@ -57,7 +57,7 @@ Available model weights:
 
 | Tiny | Small  | Base |
 | :---: | :---: | :---: |
-|[ACDS-STR-Base-STD]([https://github.com/AlibabaResearch/AdvancedLiterateMachinery/releases/download/V1.0.1-ECCV2022-model/mgp_str_tiny_patch4_32_128.pth](https://pan.baidu.com/s/17dR48P12pP2bOUX7_B8cWg?pwd=253a))|[ACDS-STR-Base-RD]([https://github.com/AlibabaResearch/AdvancedLiterateMachinery/releases/download/V1.0.1-ECCV2022-model/mgp_str_small_patch4_32_128.pth](https://pan.baidu.com/s/17dR48P12pP2bOUX7_B8cWg?pwd=253a))
+|[ACDS-STR-Base-STD]([(https://pan.baidu.com/s/17dR48P12pP2bOUX7_B8cWg?pwd=253a))]|[ACDS-STR-Base-RD]((https://pan.baidu.com/s/17dR48P12pP2bOUX7_B8cWg?pwd=253a))
 
 
 ### experiments result
@@ -65,30 +65,15 @@ Available model weights:
 
 
 
-### Run demo with pretrained model
-1. Download pretrained model 
-2. Add image files to test into `demo_imgs/`
-3. Run demo.py
-```
-mkdir demo_imgs/attens
-CUDA_VISIBLE_DEVICES=0 python3 demo.py --Transformer mgp-str \
---TransformerModel=mgp_str_base_patch4_3_32_128 --model_dir mgp_str_base.pth --demo_imgs demo_imgs/
-```
+### infer
+Run test.sh
 
+### infer
+Run test_val.sh
 
 ### Train
-
-MGP-STR-base
-
-```
-CUDA_VISIBLE_DEVICES=0 python3 -m torch.distributed.launch --nproc_per_node=1 --nnodes=1 --master_port 29501 train_final_dist.py --train_data data/training \
---valid_data data/evaluation  --select_data MJ-ST  \
---batch_ratio 0.5-0.5  --Transformer mgp-str \
---TransformerModel=mgp_str_base_patch4_3_32_128 --imgH 32 --imgW 128 \
---manualSeed=226 --workers=12 --isrand_aug --scheduler --batch_size=100 --rgb \
---saved_path <path/to/save/dir> --exp_name mgp_str_patch4_3_32_128 --valInterval 5000 --num_iter 2000000 --lr 1
-```
-
+ Run train.sh
+ 
 ### Multi-GPU training
 
 MGP-STR-base on a 2-GPU machine
