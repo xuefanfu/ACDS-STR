@@ -1,9 +1,6 @@
-# Multi-Granularity Prediction for Scene Text Recognition
+# Attention Guidance by Cross-Domain Supervision Signals for Scene Text Recognition
 
-The official PyTorch implementation of MGP-STR (ECCV 2022).
-
-MGP-STR is a conceptually **SIMPLE** yet **POWERFUL** vision STR model, which is built upon Vision Transformer (ViT). To integrate linguistic knowledge, Multi-Granularity Prediction (MGP) strategy is proposed to inject information from the language modality into
-the model in an implicit way. With **NO** independent language model (LM), MGP-STR outperforms previous state-of-the-art models for scene text recognition, including both pure vision models and language-augmented methods. <br>
+![data_demo](/assets/images/networks.png)
 
 
 ### Paper
