@@ -3,16 +3,7 @@
 ![data_demo](/assets/images/networks.png)
 
 
-### Paper
-* [ECCV 2022](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136880336.pdf)
-* [Arxiv](https://arxiv.org/abs/2209.03592)
-
-
-![MGP-STR Model](figures/mgp_str_model.png)
-<!-- <img src="./figures/mgp_str_model.png" width="1000" title="trade-off"> -->
-
 ### Install requirements
-- This work was tested with PyTorch 1.7.0, CUDA 10.1, python 3.6 and Ubuntu 16.04. <br>
 
 ```
 pip3 install -r requirements.txt
@@ -20,25 +11,23 @@ pip3 install -r requirements.txt
 
 ### Dataset
 
-Download lmdb dataset from [Read Like Humans: Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition](https://github.com/FangShancheng/ABINet).
+The lmdb dataset which contains MJ and reconstituted ST will be released.
 
 - Training datasets
 
-    1. [MJSynth](http://www.robots.ox.ac.uk/~vgg/data/text/) (MJ): 
-        - Use `tools/create_lmdb_dataset.py` to convert images into LMDB dataset
-        - [LMDB dataset BaiduNetdisk(passwd:n23k)](https://pan.baidu.com/s/1mgnTiyoR8f6Cm655rFI4HQ)
-    2. [SynthText](http://www.robots.ox.ac.uk/~vgg/data/scenetext/) (ST):
-        - Use `tools/crop_by_word_bb.py` to crop images from original [SynthText](http://www.robots.ox.ac.uk/~vgg/data/scenetext/) dataset, and convert images into LMDB dataset by `tools/create_lmdb_dataset.py`
-        - [LMDB dataset BaiduNetdisk(passwd:n23k)](https://pan.baidu.com/s/1mgnTiyoR8f6Cm655rFI4HQ)
+    1. [MJSynth]() (MJ): 
+    2. [SynthText]() (ST):
 
 - Evaluation datasets
   LMDB datasets can be downloaded from [BaiduNetdisk(passwd:1dbv)](https://pan.baidu.com/s/1RUg3Akwp7n8kZYJ55rU5LQ), [GoogleDrive](https://drive.google.com/file/d/1dTI0ipu14Q1uuK4s4z32DqbqF3dJPdkk/view?usp=sharing).<br>
-    1. ICDAR 2013 (IC13)
-    2. ICDAR 2015 (IC15)
-    3. IIIT5K Words (IIIT)
-    4. Street View Text (SVT)
-    5. Street View Text-Perspective (SVTP)
-    6. CUTE80 (CUTE)
+    1. ICDAR 2013 (IC13(857))
+    2. ICDAR 2013 (IC13(1015))
+    3. ICDAR 2015 (IC15(1811))
+    4. ICDAR 2015 (IC15(2077))
+    5. IIIT5K Words (IIIT)
+    6. Street View Text (SVT)
+    7. Street View Text-Perspective (SVTP)
+    8. CUTE80 (CUTE)
 
 - The structure of data folder as below.
 ```
@@ -46,7 +35,9 @@ data
 ├── evaluation
 │   ├── CUTE80
 │   ├── IC13_857
+|   ├── IC13_1015
 │   ├── IC15_1811
+│   ├── IC15_2077
 │   ├── IIIT5k_3000
 │   ├── SVT
 │   └── SVTP
@@ -57,7 +48,7 @@ data
 │   │   └── MJ_valid
 │   └── ST
 ```
-At this time, training datasets and evaluation datasets are LMDB datasets <br>
+
 
 
 ### Pretrained Models 
@@ -66,149 +57,11 @@ Available model weights:
 
 | Tiny | Small  | Base |
 | :---: | :---: | :---: |
-|[MGP-STR-Tiny](https://github.com/AlibabaResearch/AdvancedLiterateMachinery/releases/download/V1.0.1-ECCV2022-model/mgp_str_tiny_patch4_32_128.pth)|[MGP-STR-Small](https://github.com/AlibabaResearch/AdvancedLiterateMachinery/releases/download/V1.0.1-ECCV2022-model/mgp_str_small_patch4_32_128.pth)|[MGP-STR-Base](https://github.com/AlibabaResearch/AdvancedLiterateMachinery/releases/download/V1.0.1-ECCV2022-model/mgp_str_base_patch4_32_128.pth)|
+|[ACDS-STR-Base-STD]([https://github.com/AlibabaResearch/AdvancedLiterateMachinery/releases/download/V1.0.1-ECCV2022-model/mgp_str_tiny_patch4_32_128.pth](https://pan.baidu.com/s/17dR48P12pP2bOUX7_B8cWg?pwd=253a))|[ACDS-STR-Base-RD]([https://github.com/AlibabaResearch/AdvancedLiterateMachinery/releases/download/V1.0.1-ECCV2022-model/mgp_str_small_patch4_32_128.pth](https://pan.baidu.com/s/17dR48P12pP2bOUX7_B8cWg?pwd=253a))
 
 
-### Benchmarks (Top 1% accuracy)
-
-Performances of the reproduced pretrained models are summaried as follows:
-
-<table><tbody>
-    <tr>
-        <th>&nbsp;&nbsp;Model&nbsp;&nbsp;</th>
-        <th>&nbsp;&nbsp;Output&nbsp;&nbsp;</th>
-        <th>&nbsp;&nbsp;IC13&nbsp;&nbsp;</th>
-        <th>&nbsp;&nbsp;SVT&nbsp;&nbsp;</th>
-        <th>&nbsp;&nbsp;IIIT&nbsp;&nbsp;</th>
-        <th>&nbsp;&nbsp;IC15&nbsp;&nbsp;</th>
-        <th>&nbsp;&nbsp;SVTP&nbsp;&nbsp;</th>
-        <th>&nbsp;&nbsp;CUTE&nbsp;&nbsp;</th>
-        <th>&nbsp;&nbsp;AVG&nbsp;&nbsp;</th>
-    </tr>
-    <tr>
-        <td rowspan="4" align="center">MGP-STR-tiny</td>
-        <td align="center">Char</td>
-        <td align="center">94.6</td>
-        <td align="center">91.2</td>
-        <td align="center">94.1</td>
-        <td align="center">82.7</td>
-        <td align="center">84.7</td>
-        <td align="center">81.9</td>
-        <td align="center">89.7</td>
-    </tr>
-    <tr>
-        <td align="center">BPE</td>
-        <td align="center">86.3</td>
-        <td align="center">86.4</td>
-        <td align="center">83.6</td>
-        <td align="center">73.2</td>
-        <td align="center">80.0</td>
-        <td align="center">70.1</td>
-        <td align="center">80.7</td>
-    </tr>
-    <tr>
-        <td align="center">WP</td>
-        <td align="center">53.7</td>
-        <td align="center">43.1</td>
-        <td align="center">56.8</td>
-        <td align="center">52.0</td>
-        <td align="center">39.2</td>
-        <td align="center">44.1</td>
-        <td align="center">51.9</td>
-    </tr>
-    <tr>
-        <td align="center">Fuse</td>
-        <td align="center">95.3</td>
-        <td align="center">92.1</td>
-        <td align="center">94.3</td>
-        <td align="center">83.1</td>
-        <td align="center">85.9</td>
-        <td align="center">81.6</td>
-        <td align="center">90.2</td>
-    </tr>
-    <tr>
-        <td rowspan="4" align="center">MGP-STR-small</td>
-        <td align="center">Char</td>
-        <td align="center">95.8</td>
-        <td align="center">91.8</td>
-        <td align="center">95.0</td>
-        <td align="center">84.9</td>
-        <td align="center">86.7</td>
-        <td align="center">87.5</td>
-        <td align="center">91.2</td>
-    </tr>
-    <tr>
-        <td align="center">BPE</td>
-        <td align="center">97.0</td>
-        <td align="center">94.0</td>
-        <td align="center">88.8</td>
-        <td align="center">80.5</td>
-        <td align="center">87.4</td>
-        <td align="center">84.0</td>
-        <td align="center">87.8</td>
-    </tr>
-    <tr>
-        <td align="center">WP</td>
-        <td align="center">79.5</td>
-        <td align="center">76.4</td>
-        <td align="center">77.0</td>
-        <td align="center">70.2</td>
-        <td align="center">72.7</td>
-        <td align="center">64.9</td>
-        <td align="center">74.7</td>
-    </tr>
-    <tr>
-        <td align="center">Fuse</td>
-        <td align="center">96.6</td>
-        <td align="center">93.2</td>
-        <td align="center">95.1</td>
-        <td align="center">86.4</td>
-        <td align="center">88.1</td>
-        <td align="center">88.5</td>
-        <td align="center">92.0</td>
-    </tr>
-        <tr>
-        <td rowspan="4" align="center">MGP-STR-base</td>
-        <td align="center">Char</td>
-        <td align="center">96.3</td>
-        <td align="center">93.0</td>
-        <td align="center">95.9</td>
-        <td align="center">86.0</td>
-        <td align="center">87.4</td>
-        <td align="center">88.5</td>
-        <td align="center">92.2</td>
-    </tr>
-    <tr>
-        <td align="center">BPE</td>
-        <td align="center">97.1</td>
-        <td align="center">95.1</td>
-        <td align="center">90.0</td>
-        <td align="center">82.1</td>
-        <td align="center">89.9</td>
-        <td align="center">84.0</td>
-        <td align="center">89.1</td>
-    </tr>
-    <tr>
-        <td align="center">WP</td>
-        <td align="center">97.8</td>
-        <td align="center">94.6</td>
-        <td align="center">89.1</td>
-        <td align="center">81.6</td>
-        <td align="center">90.4</td>
-        <td align="center">81.6</td>
-        <td align="center">88.6</td>
-    </tr>
-    <tr>
-        <td align="center">Fuse</td>
-        <td align="center">97.6</td>
-        <td align="center">94.9</td>
-        <td align="center">96.2</td>
-        <td align="center">87.9</td>
-        <td align="center">90.2</td>
-        <td align="center">89.2</td>
-        <td align="center">93.4</td>
-    </tr>
-</table>
+### experiments result
+![experiments reuslts](/assets/images/experiments_result.png)
 
 
 
