@@ -11,7 +11,7 @@ pip install -r requirements.txt
 
 ### Dataset
 
-The lmdb dataset which contains MJ and reconstituted ST will be released.
+The training including MJ and reconstituted ST and evaluation dataset will be released.
 
 - Training datasets
 
@@ -19,7 +19,6 @@ The lmdb dataset which contains MJ and reconstituted ST will be released.
     2. [SynthText]() (ST):
 
 - Evaluation datasets
-  LMDB datasets can be downloaded from [BaiduNetdisk(passwd:1dbv)](https://pan.baidu.com/s/1RUg3Akwp7n8kZYJ55rU5LQ), [GoogleDrive](https://drive.google.com/file/d/1dTI0ipu14Q1uuK4s4z32DqbqF3dJPdkk/view?usp=sharing).<br>
     1. ICDAR 2013 (IC13(857))
     2. ICDAR 2013 (IC13(1015))
     3. ICDAR 2015 (IC15(1811))
@@ -54,10 +53,7 @@ data
 ### Pretrained Models 
 
 Available model weights:
-
-| Tiny | Small  | Base |
-| :---: | :---: | :---: |
-|[ACDS-STR-Base-STD]([(https://pan.baidu.com/s/17dR48P12pP2bOUX7_B8cWg?pwd=253a))]|[ACDS-STR-Base-RD]((https://pan.baidu.com/s/17dR48P12pP2bOUX7_B8cWg?pwd=253a))
+you can attain the pre-train model weights from (https://pan.baidu.com/s/17dR48P12pP2bOUX7_B8cWg). The password is 253a.
 
 
 ### experiments result
