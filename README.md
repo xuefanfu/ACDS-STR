@@ -9,6 +9,12 @@
 pip install -r requirements.txt
 ```
 
+We will release the following contents for **ACDS-STR**:exclamation:
+
+- [x] Traing Detail
+- [x] Training Dataset
+- [x] Evaluation Dataset
+
 ### Dataset
 
 The training including MJ and reconstituted ST and evaluation dataset will be released.
@@ -48,8 +54,6 @@ data
 │   └── ST
 ```
 
-
-
 ### Pretrained Models 
 
 Available model weights:
@@ -59,66 +63,28 @@ you can attain the pre-train model weights from (https://pan.baidu.com/s/17dR48P
 ### experiments result
 ![experiments reuslts](/assets/images/experiments_result.png)
 
-
-
 ### infer
-Run test.sh
+```
+sh test.sh
+```
 
-### infer
-Run test_val.sh
+### eval
+```
+sh test_val.sh
+```
 
 ### Train
- Run train.sh
- 
-### Multi-GPU training
-
-MGP-STR-base on a 2-GPU machine
-
-It is recommended to train larger networks like MGP-STR-Small and MGP-STR-Base on a multi-GPU machine. To keep a fixed batch size at `100`, use the `--batch_size` option. Divide `100` by the number of GPUs. For example, to train MGP-STR-Small on a 2-GPU machine, this would be `--batch_size=50`.
-
 ```
-CUDA_VISIBLE_DEVICES=0,1 python3 -m torch.distributed.launch --nproc_per_node=2 --nnodes=1 --master_port 29501 train_final_dist.py --train_data data/training \
---valid_data data/evaluation  --select_data MJ-ST  \
---batch_ratio 0.5-0.5  --Transformer mgp-str \
---TransformerModel=mgp_str_base_patch4_3_32_128 --imgH 32 --imgW 128 \
---manualSeed=226 --workers=12 --isrand_aug --scheduler --batch_size=50 --rgb \
---saved_path <path/to/save/dir> --exp_name mgp_str_patch4_3_32_128 --valInterval 5000 --num_iter 2000000 --lr 1
+sh train.sh
 ```
-
-
-### Test
-
-Find the path to `best_accuracy.pth` checkpoint file (usually in `saved_path` folder).
-
-```
-CUDA_VISIBLE_DEVICES=0 python3 test_final.py --eval_data data/evaluation --benchmark_all_eval --Transformer mgp-str  --data_filtering_off --rgb --fast_acc --TransformerModel=mgp_str_base_patch4_3_32_128 --model_dir <path_to/best_accuracy.pth>
-```
-
-## Visualization
-The illustration of spatial attention masks on Character A3 module, BPE A3 module and WordPiece A3 module, respectively.
-
-![cases](./figures/attens.png)
-
 
 ## Acknowledgements
-This implementation has been based on these repository [ViTSTR](https://github.com/roatienza/deep-text-recognition-benchmark), [CLOVA AI Deep Text Recognition Benchmark](https://github.com/clovaai/deep-text-recognition-benchmark), [TokenLearner](https://github.com/google-research/scenic/tree/main/scenic/projects/token_learner).
+This implementation has been based on these repositories [ViTSTR](https://github.com/roatienza/deep-text-recognition-benchmark), [MGP-STR](https://github.com/AlibabaResearch/AdvancedLiterateMachinery/tree/main/OCR/MGP-STR), [TokenLearner](https://github.com/google-research/scenic/tree/main/scenic/projects/token_learner).
 
-
-## Citation
-If you find this work useful, please cite:
-
-```
-@inproceedings{ECCV2022mgp_str,
-  title={Multi-Granularity Prediction for Scene Text Recognition},
-  author={Peng Wang, Cheng Da, and Cong Yao},
-  booktitle = {ECCV},
-  year={2022}
-}
-```
 
 ## *License*
 
-MGP-STR is released under the terms of the [Apache License, Version 2.0](LICENSE).
+ACDS-STR is released under the terms of the [Apache License, Version 2.0](LICENSE).
 
 ```
 MGP-STR is an algorithm for scene text recognition and the code and models herein created by the authors from Alibaba can only be used for research purpose.
