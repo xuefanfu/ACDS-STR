@@ -87,9 +87,6 @@ This implementation has been based on these repositories [ViTSTR](https://github
 ACDS-STR is released under the terms of the [Apache License, Version 2.0](LICENSE).
 
 ```
-MGP-STR is an algorithm for scene text recognition and the code and models herein created by the authors from Alibaba can only be used for research purpose.
-Copyright (C) 1999-2022 Alibaba Group Holding Ltd. 
-
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
