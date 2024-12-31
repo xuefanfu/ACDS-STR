@@ -3,17 +3,18 @@
 ![data_demo](/assets/images/networks.png)
 
 
+We will release the following contents for **ACDS-STR**:exclamation:
+- [x] The core code
+- [x] Traing Detail
+- [x] Training Dataset
+- [x] Evaluation Dataset
+
 ### Install requirements
 
 ```
 pip install -r requirements.txt
 ```
 
-We will release the following contents for **ACDS-STR**:exclamation:
-- [x] code
-- [x] Traing Detail
-- [x] Training Dataset
-- [x] Evaluation Dataset
 
 ### Dataset
 
