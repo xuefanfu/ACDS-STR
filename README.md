@@ -10,7 +10,7 @@ pip install -r requirements.txt
 ```
 
 We will release the following contents for **ACDS-STR**:exclamation:
-
+- [x] code
 - [x] Traing Detail
 - [x] Training Dataset
 - [x] Evaluation Dataset
