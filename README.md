@@ -24,6 +24,7 @@ The training including MJ and reconstituted ST and evaluation dataset will be re
 
     1. [MJSynth]() (MJ): 
     2. [SynthText]() (ST):
+    3. [SynthText-single]() (ST-single)
 
 - Evaluation datasets
     1. ICDAR 2013 (IC13(857))
